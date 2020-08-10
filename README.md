@@ -15,7 +15,7 @@ services:
     volumes:
 	  # Pour Docker pour Windows c'est double slash au lieu d'un seul
       - "//var/run/docker.sock:/var/run/docker.sock:ro"
-      # Ici : fichier de config partagé
+      # Ici : fichiers de config partagé
       - "./config:/etc/traefik"
 ```
   
