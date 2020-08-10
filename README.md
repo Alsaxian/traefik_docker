@@ -101,7 +101,7 @@ Finalement on peux mettre un 3-ème whoami qui répond à un autre domaine
     networks:
       - traefik_reseau
 ```
-Et préciser son domaine à qui répondre dans `dynamic.yml`de faèon similaire comme avant
+Et préciser son domaine à qui répondre dans `dynamic.yml`de façon similaire comme avant
 ```yml
     whoami_2:
       entryPoints:
