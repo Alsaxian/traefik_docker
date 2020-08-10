@@ -15,15 +15,5 @@ http:
         - "web"
       rule: "Host(`second.localhost`)"
       service: whoami-2-traefik-docker@docker
-    whoami_3:
-      entryPoints:
-        - "web"
-      rule: "Host(`third.localhost`)"
-      service: whoami-3-traefik-docker@docker
 
-  services:
-    whoami-3-traefik-docker@docker:
-      loadBalancer:
-        servers:
-          - url: "http://localhost:3001/"
 

@@ -11,15 +11,6 @@ log:
 entryPoints:
   web:
     address: ":80"
-  # websecure:
-  #   address: ":443"
-
-# certificatesResolvers:
-#   montlschallenge:
-#     acme:
-#       email:  "xianledatascientist@unmondesansxian.fr"
-#       storage:  "/letsencrypt/acme.json"
-#       tlsChallenge: {}
 
 api:
   dashboard: true

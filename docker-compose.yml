@@ -1,21 +1,17 @@
-version: "3.3"
+version: "3.8"
 services:
   traefik:
     image: "traefik:latest"
     networks:
       - traefik_reseau
-      # - traefik_proxy
     container_name: "traefik"
     ports:
       - "80:80"
-      # - "443:443"
       - "8080:8080"
     volumes:
-      # Ici : où est stocké mon certificat
-      # - "./chiffrage:/letsencrypt"
-      # Pour Docker pour Windows
+      # Pour Docker pour Windows c'est double slash au lieu d'un seul
       - "//var/run/docker.sock:/var/run/docker.sock:ro"
-      # Ici : fichier de config
+      # Ici : fichier de config partagé
       - "./config:/etc/traefik"
  
   whoami_1:
@@ -23,33 +19,14 @@ services:
     deploy:
       mode: replicated
       replicas: 2
-    # container_name: "whoami_1"
     networks:
       - traefik_reseau
-    # labels:
-    #   - "traefik.backend=whoami"
-    #   - "traefik.frontend.rule=Host:first.localhost"
   whoami_2:
     image: "containous/whoami"
     container_name: "whoami_2"
     networks:
       - traefik_reseau
-  whoami_3:
-    image: "containous/whoami"
-    container_name: "whoami_3"
-    ports:
-      - "3001:80"
-    expose:
-      - "3001"
-    # networks:
-    #   - traefik_reseau
 
 networks:
   traefik_reseau:
     driver: bridge
-  # traefik_proxy:
-  #   external:
-  #     name: traefik_proxy   
-  # whoami_reseau:
-  #   external:
-  #     name: traefik_reseau
