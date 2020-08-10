@@ -73,9 +73,6 @@ On va mettre en place maintenant un premier `whoami`
     container_name: "whoami_1"
     networks:
       - traefik_reseau
-    labels:
-      - "traefik.backend=whoami"
-      - "traefik.frontend.rule=Host:first.localhost"
 ```
 Et modifier le fichier `dynamic.yml`
 ```yml
