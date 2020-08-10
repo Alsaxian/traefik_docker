@@ -85,7 +85,7 @@ Et modifier le fichier `dynamic.yml`
       rule: "Host(`first.localhost`)"
       service: whoami-1-traefik-docker@docker # Dépend de comment s'appelle le répertoire dans lequel on a éxécuté le fichier Docker Compose.
 ```
-Le service `whoami_1` est accesible à cette adresse. On y met un 2-ème whoami qui répond au même domaine en ajoutant simplement un nombre de duplicata  
+Le service `whoami-1-traefik-docker` est accesible à cette adresse. On y met un 2-ème whoami qui répond au même domaine en ajoutant simplement un nombre de duplicata  
 ```yml
     deploy:
       mode: replicated
